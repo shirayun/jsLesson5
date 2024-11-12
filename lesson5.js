@@ -49,3 +49,24 @@ function MyTable(d)
                                                              "<td>"+d.id+"</td>"+"</tr>"
 
 }
+function add()
+{
+    let disk={
+        title:document.getElementById("title").value,
+        artist:document.getElementById("artist").value,
+        company:document.getElementById("company").value,
+        country:document.getElementById("country").value,
+        price:document.getElementById("price").value,
+        id:document.getElementById("id").value,
+        year:document.getElementById("yaer").value
+    }
+    catalog.push(disk)
+    alert("THE DISK ADDED")
+}
+
+function REMOVE()
+{
+    let x=document.getElementById("remove").value
+    catalog.splice(catalog.findIndex(item=>item.id==x),1)
+    alert("THE DISK REMOVED")
+}
