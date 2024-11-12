@@ -20,7 +20,6 @@ for (const item of arr2countries) {
 }
 function f2()
 {
-    let str = ""
     let newname = event.target.value
     const arr1 = catalog.filter(item => item.country===newname)
     document.getElementById("n").innerHTML=" "
