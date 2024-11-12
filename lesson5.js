@@ -7,11 +7,11 @@ function f1() {
     let str = ""
     let newname = document.querySelector("#n1").value
     const arr1 = catalog.filter(item => item.title.includes(newname))
+    document.getElementById("n").innerHTML=" "
     arr1.forEach(item => {
-        str += item.company + " " + item.artist + " " + item.country + " " + item.id + " " + item.price + " " + item.title + " " + item.year + "</br>"
-
+        MyTable(item)
     });
-    document.getElementById("n2").innerHTML = str
+    
 }
 const countries = catalog.map(item => item.country)
 const arr2countries = countries.filter((item, index) => !countries.includes(item, index + 1)).sort()
@@ -23,11 +23,11 @@ function f2()
     let str = ""
     let newname = event.target.value
     const arr1 = catalog.filter(item => item.country===newname)
+    document.getElementById("n").innerHTML=" "
     arr1.forEach(item => {
-        str += item.company + " " + item.artist + " " + item.country + " " + item.id + " " + item.price + " " + item.title + " " + item.year + "</br>"
-
+        MyTable(item)
     });
-    document.getElementById("n3").innerHTML = str
+    
 }
 
 function f3()
@@ -35,6 +35,17 @@ function f3()
     let first=document.getElementById("in1").value
     let long=document.getElementById("in2").value
     const disk=catalog.find(item=>item.year>first&&item.year<long)
-    let str=disk.artist+" "+disk.company+" "+disk.country+" "+disk.price+" "+disk.title+" "+disk.year+" "+disk.id
-    document.getElementById("n4").innerHTML = str
+    document.getElementById("n").innerHTML=" "
+    MyTable(disk)
+}
+function MyTable(d)
+{
+    document.getElementById("n").innerHTML +="<tr>"+"<td>"+d.title+"</td>"+
+                                                             "<td>"+d.artist+"</td>"+
+                                                             "<td>"+d.company+"</td>"+
+                                                             "<td>"+d.country+"</td>"+
+                                                             "<td>"+d.price+"</td>"+
+                                                             "<td>"+d.year+"</td>"+
+                                                             "<td>"+d.id+"</td>"+"</tr>"
+
 }
